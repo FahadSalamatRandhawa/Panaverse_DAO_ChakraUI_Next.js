@@ -13,7 +13,7 @@ interface QuarterItemInterface{
 interface QuarterInterface{
   QuarterName:string,
   Items:QuarterItemInterface[];
-  tests?:string[];
+  tests:string[];
 }
 
 interface CityInterface{
@@ -23,7 +23,7 @@ interface CityInterface{
   dayOfWeek:string;
 }
 
-let Quarter:QuarterInterface[]=[{
+let QuarterList:QuarterInterface[]=[{
   QuarterName:'Quarter1',
   Items:[
     {src:'/Quarter1/html_css-removebg-preview.png',title:'HTML & CSS'},
@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <>
       <Quarters/>
-      <QuaterDetails Quarters={Quarter}/>
+      <QuaterDetails QuarterList={QuarterList}/>
       <Cities CityList={CityList}/>
       <Footer/>
     </>

@@ -12,12 +12,12 @@ interface QuarterInterface{
     tests:string[];
   }
 
-export default function QuaterDetails({Quarters}:{Quarters:QuarterInterface[]}){
-    console.log(Quarters[0]);
+export default function QuaterDetails({QuarterList}:{QuarterList:QuarterInterface[]}){
+    console.log(QuarterList[0]);
     return (
         <>
             {
-                Quarters.map((q:QuarterInterface)=>{
+                QuarterList.map((q:QuarterInterface)=>{
                     return (
                         <>
                             <Flex bgImage='/bg.avif' bgSize='contain' direction='column' width='100%' height='auto' padding={2}>
