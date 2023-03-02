@@ -1,91 +1,77 @@
-import Image from 'next/image'
+'use client'
 import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Cities from './Components/Cities'
+import Footer from './Components/Footer'
+import QuaterDetails from './Components/QuarterDetails'
+import Quarters from './Components/Quarters'
 
-const inter = Inter({ subsets: ['latin'] })
+interface QuarterItemInterface{
+      src:string;
+      title:string;
+}
+
+interface QuarterInterface{
+  QuarterName:string,
+  Items:QuarterItemInterface[];
+  tests?:string[];
+}
+
+interface CityInterface{
+  src:string;
+  name:string;
+  location:string;
+  dayOfWeek:string;
+}
+
+let Quarter:QuarterInterface[]=[{
+  QuarterName:'Quarter1',
+  Items:[
+    {src:'/Quarter1/html_css-removebg-preview.png',title:'HTML & CSS'},
+  {src:'/Quarter1/js-javascript--removebg-preview.png',title:'JavaScript'},
+  {src:'/Quarter1/ts-removebg-preview.png',title:'TypeScript'},
+  {src:'/Quarter1/Web 3 & Metaverse Theory.png',title:'Web3 & Metavese Theory'},
+  {src:'/Quarter1/git.png',title:'Git'}],
+  tests:['Assigment 1','JS Quiz','TypeScript Quiz','TS Proficiency Quiz','Git Quiz1','Git Quiz2']
+  },
+  {
+    QuarterName:'Quarter 2',
+    Items:[
+      {src:'/Quarter2/tsx-removebg-preview.png',title:'TSX'},
+      {src:'/Quarter2/nextjs-removebg-preview.png',title:'Next.js'},
+      {src:'/Quarter2/SQL.png',title:'SQL'},
+      {src:'/Quarter2/terraform.png',title:'Terraform CDK'},
+      {src:'/Quarter2/aws_app_composer-removebg-preview.png',title:'AWS App Composer'},
+      {src:'/Quarter2/tailwind.png',title:'TailWind Css'},
+      {src:'/Quarter2/chakra_ui-removebg-preview.png',title:'Chakra UI'},
+    ],
+    tests:['Next.js Projects','TailWind&Chakra UI Projects','Todo FullStack App','Twitter Clone']
+  },{
+    QuarterName:'$ Making Qurter',
+    Items:[
+      {src:'/$ Making Quarter/graphql.png',title:"GraphQL API's"},
+      {src:'/$ Making Quarter/jamstack.png',title:'JamStack Templates'},
+    ],
+    tests:['Headless CMS Templates','Theme Forest Seller',"Serverless API's","API Economy"]
+  }
+]
+
+let CityList:CityInterface[]=[
+  {src:'/City/lahore.png',name:'Lahore',location:'UMT',dayOfWeek:"Sunday"},
+  {src:'/City/Peshawar.png',name:'Peshawar',location:'PESCO',dayOfWeek:"Tuesday"},
+  {src:'/City/islamabad.png',name:'Islamabad',location:'Air University',dayOfWeek:"Saturday"},
+  {src:'/City/karachi.png',name:'Karachi',location:'Bahria University',dayOfWeek:"Thursday"},
+  {src:'/City/Quetta.png',name:'Quetta',location:'Minhaj University',dayOfWeek:"Wednesday"},
+]
+
+//const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <>
+      <Quarters/>
+      <QuaterDetails Quarters={Quarter}/>
+      <Cities CityList={CityList}/>
+      <Footer/>
+    </>
   )
 }
