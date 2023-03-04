@@ -1,5 +1,11 @@
 'use client'
-import { Inter } from '@next/font/google'
+import {
+  Slider,
+  SliderTrack,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderMark,
+} from '@chakra-ui/react'
 import Cities from './Components/Cities'
 import Footer from './Components/Footer'
 import QuaterDetails from './Components/QuarterDetails'
@@ -68,7 +74,7 @@ let CityList:CityInterface[]=[
 export default function Home() {
   return (
     <>
-      <Quarters/>
+        <Quarters/>
       <QuaterDetails QuarterList={QuarterList}/>
       <Cities CityList={CityList}/>
       <Footer/>
